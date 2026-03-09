@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Nuestros Recuerdos ❤️</title>
+
+<style>
+
+body{
+margin:0;
+background:black;
+color:#00ff9d;
+font-family:monospace;
+overflow-x:hidden;
+text-align:center;
+}
+
+/* TEXTO HACKER */
+
+#terminal{
+margin-top:200px;
+font-size:28px;
+}
+
+/* CORAZONES */
+
+.heart{
+position:fixed;
+top:-10px;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+to{transform:translateY(110vh);}
+}
+
+/* CARTA */
+
+#carta{
+margin:50px auto;
+background:white;
+color:#333;
+padding:30px;
+border-radius:15px;
+width:320px;
+display:none;
+}
+
+/* GALERÍA */
+
+#recuerdos{
+display:none;
+margin-top:40px;
+}
+
+.foto{
+margin:40px auto;
+}
+
+.foto img{
+width:300px;
+border-radius:15px;
+box-shadow:0 0 20px rgba(255,0,80,0.7);
+}
+
+.frase{
+color:white;
+font-size:20px;
+margin-top:10px;
+}
+texto-largo {
+    max-width: 600px;         /* Evita que el texto sea demasiado ancho */
+    margin: 40px auto;       /* Lo centra y separa de lo de arriba */
+    line-height: 1.8;         /* Da espacio entre líneas (vital para leer bien) */
+    text-align: justify;      /* Alineación limpia */
+    background: rgba(255, 255, 255, 0.05); /* Un fondo muy sutil */
+    padding: 40px;
+    border-radius: 20px;
+    border-left: 3px solid #00ff9d; /* Un detalle de color a la izquierda */
+    font-size: 18px;
+    color: #e0e0e0;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="terminal"></div>
+
+<div id="carta">
+<h2>Para Ti ❤️</h2>
+<p>
+Desde que llegaste a mi vida todo cambió.<br><br>
+Cada momento contigo es un recuerdo que guardo en mi corazón.
+</p>
+</div>
+
+<div id="recuerdos">
+
+<div class="foto">
+<img src="amor1.jpeg">
+<div class="frase">Uno de nuestros recuerdo juntos ❤️</div>
+</div>
+
+<div class="foto">
+<img src="amor2.jpeg">
+<div class="frase">Cada momento contigo vale la pena 💕</div>
+</div>
+
+<div class="foto">
+<img src="amor3.jpeg">
+<div class="frase">Preparando tu sorpresa en Shalom 🌎</div>
+</div>
+
+<div class="foto">
+<img src="amor4.jpeg">
+<div class="frase">Gracias por existir en mi vida ✨</div>
+</div>
+<div class="video">
+    <video width="300" controls style="border-radius: 15px; box-shadow: 0 0 20px rgba(255,0,80,0.7);">
+        <source src="video.mp4" type="video/mp4">
+    </video>
+    <div class="frase">Una y otra vez intentaré no me rendiré porque ✨</div>
+    <div class="frase"> En serio te amo con el alma y te adoro ✨</div>
+</div>
+<div class="foto">
+<img src="amor5.jpeg">
+<div class="frase"> Las ganas de amarte nunca se me acabarán, porque  eres✨</div>
+<div class="frase">la personita que un día le pedí a dios✨</div>
+</div>
+<div class="texto-largo">
+    <h3>Unas palabras para ti...💕</h3>
+    <p> <strong>
+        💕💕Amor,perdóname por mis errores y por no saber cuidarte  como mereces
+        Me duele imaginar que mis palabras o acciones hayan lastimado lo que constrimos</strong> 
+        Con tanto cariño. No quiero Orgullo, Quiero paz contigo. Quiero abrazarte sin miedo </p>
+    <p>Amarte y sentir que aún somos nosotros. Si me das una oportunidad</p>
+    <p>Prometo demostrarte con hechos que aprendí y que te amo mas de lo que sé decir💕💕</p>
+</div>
+<div class="foto">
+<img src="amor6.jpeg">
+<div class="frase"> ❤️Empecemos a amarnos nuevamente, a preguntarnos nuestros gustos, nuestros colores. ❤️✨</div>
+<div class="frase"> ❤️ Hoy 08/03/2026 quiero iniciar una historia sin fin Porque te amo.    ❤️✨</div>
+<div class="frase"❤️>No empecemos de cero, sino de lo que ya aparendímos, hacer de esto una nueva relación ❤️✨</div>
+<div class="frase">❤️ Una en la que No haya ninguna dificultad que podamos superar juntos. Te amo y siempre lo haré✨</div>
+</div>
+</div>
+
+<script>
+
+/* TEXTO HACKER */
+
+const mensaje="Iniciando sistema...\nBuscando recuerdos felices...\nResultado encontrado:\nMI PERSONA FAVORITA ❤️";
+
+let i=0;
+
+function escribir(){
+
+if(i<mensaje.length){
+
+document.getElementById("terminal").innerHTML += 
+mensaje.charAt(i)==="\n"?"<br>":mensaje.charAt(i);
+
+i++;
+
+setTimeout(escribir,60);
+
+}else{
+
+setTimeout(()=>{
+document.getElementById("carta").style.display="block";
+},1000);
+
+setTimeout(()=>{
+document.getElementById("recuerdos").style.display="block";
+},4000);
+
+}
+
+}
+
+escribir();
+
+/* CORAZONES */
+
+function crearCorazon(){
+
+const heart=document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(Math.random()*20+15)+"px";
+
+heart.style.animationDuration=(Math.random()*3+2)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},5000);
+
+}
+
+setInterval(crearCorazon,300);
+
+</script>
+
+</body>
+</html>
